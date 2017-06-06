@@ -1,14 +1,29 @@
-function play(num) {
-  if (num % 3 === 0 && num % 5 === 0 ) {
-    return "FizzBuzz";
-  }
-  else if (num % 3 === 0) {
-    return "Fizz";
-  }
-  else if (num % 5 === 0) {
+var Javabuzz = function() {};
+
+Javabuzz.prototype._isDivisibleBy = function(number, divisor) {
+  return (number % divisor === 0);
+};
+
+Javabuzz.prototype.isDivisibleByThree = function(number) {
+  return this. _isDivisibleBy(number, 3);
+};
+
+Javabuzz.prototype.isDivisibleByFive = function(number) {
+  return this. _isDivisibleBy(number, 5);
+};
+
+Javabuzz.prototype.isDivisibleByFifteen = function(number) {
+  return this. _isDivisibleBy(number, 15)
+};
+
+Javabuzz.prototype.says = function(number) {
+  if (this.isDivisibleByFifteen(number)) {
+    return "Javabuzz";
+  } else if (this.isDivisibleByThree(number)) {
+    return "Java";
+  } else if (this.isDivisibleByFive(number)) {
     return "Buzz";
+  } else {
+    return number;
   }
-  else {
-    return num;
-  }
-}
+};
